@@ -9,6 +9,11 @@ Execute the following commands:
 
 ```
 terraform init
-terraform plan
-terraform apply
+terraform plan -out my-plan.plan
+```
+
+Carefully review your plan for accuracy! Then execute:
+
+```
+terraform apply my-plan.plan
 ```
