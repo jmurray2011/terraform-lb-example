@@ -33,3 +33,13 @@ terraform apply my-plan.plan
 ```
 
 6. Wait a few minutes for your infrastructure to come online
+
+### NOTE
+
+This will spit out an AWS Key Pair associated with the instances spun up by Terraform. You will need to set the correct permissions in order to use it:
+
+```chmod 400 <my-keyfile.pem>```
+
+The default username for the AMI is ```ec2-user```, so the correct SSH command would be:
+
+```ssh -i "/path/to/<my-keyfile.pem>" ec2-user@<your-instance-public-ip>```
