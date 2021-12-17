@@ -3,6 +3,10 @@ by [Andrei Maksimov](https://www.linkedin.com/in/avmaksimov/) / [Hands-On.Cloud]
 
 The original code is [on his github](https://github.com/andreivmaksimov/terraform-recipe-managing-auto-scaling-groups-and-load-balancers)
 
+## Intention
+
+The intention of this repo is to mock out a base configuration for an auto-scaling, load-balanced set of web servers with automatic SSL termination.
+
 ## Assumptions
 
 This is configured with the assumption that you have a Hosted Domain in AWS and that said domain has a Hosted Zone with the same name as is defined by the _domain_ variable. It will *NOT* create or modify existing Hosted Zones.
