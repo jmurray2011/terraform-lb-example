@@ -5,6 +5,9 @@ The original code is [on his github](https://github.com/andreivmaksimov/terrafor
 
 ## Launch instructions
 
+Copy example variables: ```cp values.auto.tfvars.example values.auto.tfvars```
+Modify new file with your desired variables, save to ```values.auto.tfvars```
+
 Execute the following commands:
 
 ```
