@@ -20,8 +20,9 @@ resource "aws_key_pair" "kp" {
   key_name   = var.keypair_name
   public_key = tls_private_key.pk.public_key_openssh
 
+  # store the generated key locally
   provisioner "local-exec" { 
-    command = "echo '${tls_private_key.pk.private_key_pem}' > ./${var.keypair_name}"
+    command = "echo '${tls_private_key.pk.private_key_pem}' > ./${var.keypair_filename}"
   }
 }
 
@@ -153,21 +154,25 @@ resource "aws_route53_record" "domain-validation" {
 }
 
 resource "aws_route53_record" "www-domain-com" {
-  zone_id = data.aws_route53_zone.domain.zone_id
-  name = "www.${var.domain}"
-  type = "A"
+  zone_id 	= data.aws_route53_zone.domain.zone_id
+  name 		= "www.${var.domain}"
+  type		= "A"
   alias {
-    name 	  = aws_elb.elb_web.dns_name
-    zone_id	  = aws_elb.elb_web.zone_id
-    evaluate_target_health = true
+    name 	  		= aws_elb.elb_web.dns_name
+    zone_id	  		= aws_elb.elb_web.zone_id
+    evaluate_target_health 	= true
   }
 }
 
 resource "aws_route53_record" "domain-com" {
   zone_id = data.aws_route53_zone.domain.zone_id
   name = var.domain
-  type = "CNAME"
-  records = [aws_route53_record.www-domain-com.name]
+  type = "A"
+  alias {
+    name 	  		= aws_elb.elb_web.dns_name
+    zone_id	  		= aws_elb.elb_web.zone_id
+    evaluate_target_health 	= true
+  }
 }
 
 data "aws_elb_hosted_zone_id" "domain" {}

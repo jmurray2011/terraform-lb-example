@@ -13,6 +13,11 @@ variable "keypair_name" {
   description	= "The name of the EC2 keypair you'd like to generate"
 }
 
+variable "keypair_filename" {
+  type 		= string
+  description	= "The local filename of the EC2 keypair you generated"
+}
+
 variable "vpc_name" {
   type 		= string
   description 	= "The name of the VPC you'd like to create"
