@@ -13,7 +13,7 @@ This is configured with the assumption that you have a Hosted Domain in AWS and 
 
 ## Launch instructions
 
-1. Copy example variables: ```cp values.tfvars.example values.tfvars```
+1. Copy example variables: ```cp "values.tfvars.example" "values.tfvars"```
 
 2. Modify ```values.tfvars``` file with your desired variables, save 
 
@@ -21,10 +21,11 @@ This is configured with the assumption that you have a Hosted Domain in AWS and 
 
 ```
 terraform init
-terraform plan -out my-plan.plan -var-file =values.tfvars
+
+terraform plan -out "my-plan.plan" -var-file="values.tfvars"
 ```
 
-4. Carefully review your plan for accuracy!
+4. **Carefully review your plan for accuracy!**
 
 5. Once satisfied, execute:
 
