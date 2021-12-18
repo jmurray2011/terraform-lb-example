@@ -21,7 +21,7 @@ This is configured with the assumption that you have a Hosted Domain in AWS and 
 
 ```
 terraform init
-terraform plan -out my-plan.plan
+terraform plan -out my-plan.plan -var-file=values.tfvars
 ```
 
 4. Carefully review your plan for accuracy!
