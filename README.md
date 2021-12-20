@@ -1,5 +1,6 @@
 - [Intention](#intention)
 - [Assumptions](#assumptions)
+- [Prerequisites](#prerequisites)
 - [Launch instructions](#launch-instructions)
   - [NOTE](#note)
 
@@ -15,11 +16,21 @@ The intention of this repo is to mock out a base configuration for an auto-scali
 
 This is configured with the assumption that you have a Hosted Domain in AWS and that said domain has a Hosted Zone with the same name as is defined by the _domain_ variable. It will *NOT* create or modify existing Hosted Zones.
 
+## Prerequisites
+
+1. Install [terraform](https://learn.hashicorp.com/tutorials/terraform/install-cli)
+
+2. Install [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+
+3. Generate an [IAM access key](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html) for the user account you'll be using `terraform` with
+
+4. Create an [aws cli Named Profile](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html). This will be referred to in the `terraform` variables file `values.tfvars`
+
 ## Launch instructions
 
 1. Copy example variables: ```cp "values.tfvars.example" "values.tfvars"```
 
-2. Modify ```values.tfvars``` file with your desired variables, save 
+2. Modify ```values.tfvars``` file with your desired variables and save 
 
 3. Execute the following commands:
 
